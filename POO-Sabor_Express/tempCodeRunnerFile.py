@@ -1,0 +1,1 @@
+    Restaurante.lista_restaurantes()
