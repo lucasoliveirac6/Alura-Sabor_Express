@@ -5,9 +5,9 @@ restaurante_mexicano = Restaurante("Tamaexico", "Mexicano")
 restaurante_esquina = Restaurante("Esquininha da Vó", "Japonesa")
 
 restaurante_mexicano.alternar_estado()
-restaurante_mexicano.receber_avaliacao("Lucas", 10)
-restaurante_mexicano.receber_avaliacao("Joao", 7)
-restaurante_mexicano.receber_avaliacao("Alberto", 8)
+restaurante_mexicano.receber_avaliacao("Lucas", 3)
+restaurante_mexicano.receber_avaliacao("Joao", 2)
+restaurante_mexicano.receber_avaliacao("Alberto", 5)
 
 
 

@@ -1,4 +1,5 @@
 from modelos.avaliacao import Avaliacao
+from modelos.cardapio.item_cardapio import ItemCardapio
 
 class Restaurante:
     restaurantes = list()
@@ -10,6 +11,7 @@ class Restaurante:
         self._ativo = False
         # Não manipulado assim que se instancia um objeto
         self._avaliacao = list()
+        self._cardapio = list()
         Restaurante.restaurantes.append(self)
     
     def __str__(self):
@@ -42,3 +44,20 @@ class Restaurante:
         qtd_notas = len(self._avaliacao)
 
         return round(soma_notas / qtd_notas, 1)
+    
+    def adicionar_item_cardapio(self, item):
+        if isinstance(item, ItemCardapio): # Se houver um item instanciado com aquele nome na classe especificada
+            self._cardapio.append(item)
+
+    @property # Um item que a gente quer ser capaz de ler, portanto, property
+    def exibir_cardapio(self):
+        print(f"Cardapio do restaurante {self._nome}\n")
+        for i, item in enumerate(self._cardapio, start=1):
+            #  Se tiver o atributo imprime de acordo com o tipo de item
+            if hasattr(item, "_descricao"):
+                mensagem_prato = f"Item {i}. Nome: {item._nome.ljust(15)} | Preço: R$ {f"{item._preco:.2f}".ljust(5)} | Descricao: {item._descricao}"
+                print(mensagem_prato)
+            else:
+                mensagem_bebida = f"Item {i}. Nome: {item._nome.ljust(15)} | Preço: R$ {f"{item._preco:.2f}".ljust(5)} | Tamanho: {item._tamanho}"
+                print(mensagem_bebida)
+                
